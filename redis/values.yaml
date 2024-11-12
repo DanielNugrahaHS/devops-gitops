@@ -33,8 +33,8 @@ master:
   #     cpu: "200m"
 
 auth:
-  enabled: false
-  allowEmptyPassword: true
+  enabled: true
+  password: "testing123" 
 
 replica:
   replicaCount: 1  

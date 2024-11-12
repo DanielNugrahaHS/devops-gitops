@@ -6,16 +6,16 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/DanielNugrahaHS/devops-gitops' # Ganti dengan URL repo Git Anda
+    repoURL: 'https://github.com/DanielNugrahaHS/devops-gitops'
     targetRevision: HEAD
     path: redis
     helm:
       valueFiles:
-        - values.yaml # Sesuaikan jika menggunakan nilai yang berbeda
+        - values.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: testing
   syncPolicy:
     automated:
-      prune: true     # Hapus resource yang tidak ada di repository Git
-      selfHeal: true  # Menyinkronkan ulang jika ada perubahan di cluster
+      prune: true     
+      selfHeal: true
