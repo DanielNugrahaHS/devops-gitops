@@ -14,6 +14,11 @@ autoscaling:
   maxReplicas: 10
   targetCPUUtilizationPercentage: 80
 
+image:
+  repository: "bitnami/redis"  # Ganti dengan image Redis yang Anda inginkan
+  tag: "latest"                # Ganti dengan versi yang sesuai, misalnya "6.2.6"
+  pullPolicy: IfNotPresent
+
 master:
   persistence:
     enabled: true
