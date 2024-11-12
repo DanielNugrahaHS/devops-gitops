@@ -5,6 +5,9 @@ global:
 serviceAccount:
   create: true
 
+ingress:
+  enabled: false
+
 master:
   persistence:
     enabled: true
