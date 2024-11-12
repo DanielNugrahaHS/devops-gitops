@@ -32,6 +32,10 @@ master:
   #     memory: "512Mi"
   #     cpu: "200m"
 
+auth:
+  enabled: false
+  allowEmptyPassword: true
+
 replica:
   replicaCount: 1  
   persistence:
