@@ -6,7 +6,7 @@ master:
   persistence:
     enabled: true
     storageClass: "" 
-    size: 4Gi  # 
+    size: 4Gi 
   resources:
     requests:
       memory: "128Mi"
