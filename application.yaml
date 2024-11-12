@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: 'https://github.com/DanielNugrahaHS/devops-gitops' # Ganti dengan URL repo Git Anda
     targetRevision: HEAD
-    path: redis/redis
+    path: redis
     helm:
       valueFiles:
         - values.yaml # Sesuaikan jika menggunakan nilai yang berbeda
