@@ -8,6 +8,12 @@ serviceAccount:
 ingress:
   enabled: false
 
+autoscaling:
+  enabled: false  # Set ke true jika ingin menggunakan autoscaling
+  minReplicas: 1
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 80
+
 master:
   persistence:
     enabled: true
