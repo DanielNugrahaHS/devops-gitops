@@ -1,58 +1,37 @@
 global:
   name: redis
-  namespaceOverride: testing  
-
-serviceAccount:
-  create: true
-
-ingress:
-  enabled: false
-
-autoscaling:
-  enabled: false  # Set ke true jika ingin menggunakan autoscaling
-  minReplicas: 1
-  maxReplicas: 10
-  targetCPUUtilizationPercentage: 80
-
-image:
-  repository: "bitnami/redis"  # Ganti dengan image Redis yang Anda inginkan
-  tag: "latest"                # Ganti dengan versi yang sesuai, misalnya "6.2.6"
-  pullPolicy: IfNotPresent
+  namespaceOverride: testing  # Namespace tempat Redis akan dideploy
 
 master:
   persistence:
     enabled: true
-    storageClass: "" 
-    size: 4Gi 
-  # resources:
-  #   requests:
-  #     memory: "128Mi"
-  #     cpu: "50m"
-  #   limits:
-  #     memory: "512Mi"
-  #     cpu: "200m"
-
-auth:
-  enabled: false
-  allowEmptyPassword: true 
+    storageClass: ""  # Kosongkan ini jika ingin menggunakan default storage class dari Minikube
+    size: 20Gi  # Ukuran penyimpanan yang diinginkan
+  resources:
+    requests:
+      memory: "256Mi"
+      cpu: "100m"
+    limits:
+      memory: "512Mi"
+      cpu: "200m"
 
 replica:
-  replicaCount: 1  
+  replicaCount: 1  # Jumlah replica Redis
   persistence:
     enabled: true
-    storageClass: ""  
-    size: 4Gi  
-  # resources:
-  #   requests:
-  #     memory: "128Mi"
-  #     cpu: "50m"
-  #   limits:
-  #     memory: "512Mi"
-  #     cpu: "200m"
+    storageClass: ""  # Kosongkan ini jika ingin menggunakan default storage class dari Minikube
+    size: 20Gi  # Ukuran penyimpanan yang diinginkan untuk replica juga
+  resources:
+    requests:
+      memory: "256Mi"
+      cpu: "100m"
+    limits:
+      memory: "512Mi"
+      cpu: "200m"
 
 networkPolicy:
-  enabled: true  
+  enabled: true  # Mengaktifkan NetworkPolicy untuk keamanan jaringan
 
 service:
-  type: ClusterIP  
+  type: ClusterIP  # Jenis service Redis
   port: 6379

@@ -1,3 +1,24 @@
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: redis
+#   namespace: argocd
+# spec:
+#   project: default
+#   source:
+#     repoURL: 'https://github.com/DanielNugrahaHS/devops-gitops'
+#     targetRevision: HEAD
+#     path: redis
+#     helm:
+#       valueFiles:
+#         - values.yaml
+#   destination:
+#     server: https://kubernetes.default.svc
+#     namespace: testing
+#   syncPolicy:
+#     automated:
+#       prune: true     
+#       selfHeal: true
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -6,9 +27,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/DanielNugrahaHS/devops-gitops'
-    targetRevision: HEAD
-    path: redis
+    repoURL: 'https://charts.bitnami.com/bitnami'
+    chart: redis
+    targetRevision: 15.6.7
     helm:
       valueFiles:
         - values.yaml
