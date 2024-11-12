@@ -2,6 +2,9 @@ global:
   name: redis
   namespaceOverride: testing  
 
+serviceAccount:
+  create: true
+
 master:
   persistence:
     enabled: true
