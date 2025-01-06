@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: test-service
-          image: dnhs/zipkin-py:2
+          image: dnhs/zipkin-py:3
           ports:
             - containerPort: 8080
           env:
