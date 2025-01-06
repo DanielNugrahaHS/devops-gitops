@@ -4,7 +4,7 @@ import time
 import random
 
 # RabbitMQ Configuration
-RABBITMQ_HOST = 'rabbitmq.default.svc.cluster.local'
+RABBITMQ_HOST = 'rabbitmq.testing.svc.cluster.local'
 RABBITMQ_PORT = 5672
 QUEUE_NAME = 'test_queue'
 
