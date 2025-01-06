@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: test-service
-          image: zipkin:py
+          image: zipkin-py:1
           ports:
             - containerPort: 8080
           env:
