@@ -29,9 +29,3 @@ env:
     value: "zipkin.testing.svc.cluster.local"
   - name: TRACING_ZIPKIN_PORT
     value: "9411"
-auth:
-  username: admin
-  password: secretpassword
-  erlangCookie: secretcookie
-  rabbitmq.username: admin
-  rabbitmq.password: secretpassword
