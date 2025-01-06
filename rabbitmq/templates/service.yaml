@@ -8,9 +8,11 @@ metadata:
 spec:
   type: {{ .Values.service.type }}
   ports:
-  - port: {{ .Values.service.port }}
+  - name: amqp
+    port: {{ .Values.service.port }}
     targetPort: {{ .Values.service.port }}
-  - port: 15672
-    targetPort: 15672
+  - name: management
+    port: {{ .Values.service.managementPort }}
+    targetPort: {{ .Values.service.managementPort }}
   selector:
     app: {{ .Chart.Name }}
