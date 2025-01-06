@@ -33,6 +33,5 @@ auth:
   username: admin
   password: secretpassword
   erlangCookie: secretcookie
-  existingPasswordSecret:
   rabbitmq.username: admin
   rabbitmq.password: secretpassword
