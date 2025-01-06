@@ -9,6 +9,6 @@ env:
     value: "9411"
 auth:
   username: admin
-  password: securepassword123
-  erlangCookie: myerlangcookie
-  existingSecret: ""
+  password: secretpassword
+  erlangCookie: secretcookie
+replicaCount: 1

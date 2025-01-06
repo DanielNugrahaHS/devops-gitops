@@ -11,7 +11,7 @@ spec:
     chart: rabbitmq
     helm:
       valueFiles:
-        - rabbitmq/values.yaml
+        - values.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: testing
