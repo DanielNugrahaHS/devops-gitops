@@ -1,0 +1,14 @@
+extraPlugins: "rabbitmq_tracing"
+extraConfiguration: |
+  tracing.enabled = true
+  tracing.storage = zipkin
+env:
+  - name: TRACING_ZIPKIN_HOST
+    value: "zipkin.testing.svc.cluster.local"
+  - name: TRACING_ZIPKIN_PORT
+    value: "9411"
+auth:
+  username: admin
+  password: securepassword123
+  erlangCookie: myerlangcookie
+  existingSecret: ""
