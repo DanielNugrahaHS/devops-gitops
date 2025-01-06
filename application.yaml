@@ -6,9 +6,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://charts.bitnami.com/bitnami
-    targetRevision: 11.0.4
-    chart: rabbitmq
+    repoURL: 'https://github.com/DanielNugrahaHS/devops-gitops'
+    targetRevision: "master"
+    path: rabbitmq
     helm:
       valueFiles:
         - values.yaml
