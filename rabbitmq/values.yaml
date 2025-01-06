@@ -1,3 +1,24 @@
+# values.yaml
+replicaCount: 1
+image:
+  repository: bitnami/rabbitmq
+  tag: 3.11
+  pullPolicy: IfNotPresent
+service:
+  type: ClusterIP
+  port: 5672
+resources:
+  requests:
+    memory: "256Mi"
+    cpu: "100m"
+  limits:
+    memory: "512Mi"
+    cpu: "200m"
+persistence:
+  enabled: true
+  storageClass: "standard"
+  accessMode: ReadWriteOnce
+  size: 8Gi
 extraPlugins: "rabbitmq_tracing"
 extraConfiguration: |
   tracing.enabled = true
@@ -11,4 +32,3 @@ auth:
   username: admin
   password: secretpassword
   erlangCookie: secretcookie
-replicaCount: 1
