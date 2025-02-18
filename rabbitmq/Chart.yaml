@@ -1,6 +1,5 @@
+# Chart.yaml
 apiVersion: v2
 name: rabbitmq
-description: A RabbitMQ Helm chart
-type: application
 version: 1.0.0
-appVersion: "3.11"
+description: A Helm chart for RabbitMQ deployment
