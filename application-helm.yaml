@@ -1,0 +1,86 @@
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: rabbitmq
+#   namespace: argocd
+# spec:
+#   project: default
+#   source:
+#     repoURL: 'https://github.com/DanielNugrahaHS/devops-gitops'
+#     targetRevision: "master"
+#     path: rabbitmq/
+#     helm:
+#       valueFiles:
+#         - values.yaml
+#   destination:
+#     server: https://kubernetes.default.svc
+#     namespace: testing
+#   syncPolicy:
+#     automated:
+#       prune: true
+#       selfHeal: true
+# --- 
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: test-service
+#   namespace: argocd
+# spec:
+#   project: default
+#   source:
+#     repoURL: 'https://github.com/DanielNugrahaHS/devops-gitops'
+#     targetRevision: master
+#     path: testing-service/py-zipkin-test/k8s
+#   destination:
+#     server: 'https://kubernetes.default.svc'
+#     namespace: testing
+#   syncPolicy:
+#     automated:
+#       prune: true
+#       selfHeal: true
+# --- 
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: zipkin
+#   namespace: argocd
+# spec:
+#   project: default
+#   source:
+#     repoURL: 'https://github.com/DanielNugrahaHS/devops-gitops'
+#     targetRevision: master
+#     path: zipkin/
+#   destination:
+#     server: 'https://kubernetes.default.svc'
+#     namespace: testing
+#   syncPolicy:
+#     automated:
+#       prune: true
+#       selfHeal: true
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: vault
+#   namespace: argocd
+# spec:
+#   project: default
+#   source:
+#     repoURL: https://helm.releases.hashicorp.com
+#     targetRevision: 0.29.1
+#     chart: vault
+#     helm:
+#       values: |
+#         server:
+#           dev:
+#             enabled: true
+#         ui:
+#           enabled: true
+#         injector:
+#           enabled: true
+#   destination:
+#     server: https://kubernetes.default.svc
+#     namespace: testing
+#   syncPolicy:
+#     automated:
+#       prune: true
+#       selfHeal: true

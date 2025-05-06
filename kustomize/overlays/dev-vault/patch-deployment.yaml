@@ -1,0 +1,12 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vault
+  namespace: vault
+  template:
+    spec:
+      containers:
+        - name: vault
+          env:
+            - name: VAULT_LOG_LEVEL
+              value: "debug"
