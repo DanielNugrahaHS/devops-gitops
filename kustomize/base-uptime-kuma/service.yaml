@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: uptime-kuma-tcp
+  namespace: uptime-kuma
+spec:
+  # type: LoadBalancer
+  # loadBalancerIP: <LB-IP>
+  ports:
+  - name: web-ui
+    protocol: TCP
+    port: 3001
+    targetPort: 3001
+  selector:
+    app: uptime-kuma
