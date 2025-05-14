@@ -23,7 +23,21 @@ spec:
             - name: VAULT_DEV_ROOT_TOKEN_ID
               value: "root"
             - name: VAULT_LOCAL_CONFIG
-              value: /vault/config/config.json
+              value: |
+                {
+                  "ui": true,
+                  "listener": {
+                    "tcp": {
+                      "address": "0.0.0.0:8200",
+                      "tls_disable": true
+                    }
+                },
+                "storage": {
+                  "file": {
+                    "path": "/vault/data"
+                      }
+                  }
+                }
             - name: VAULT_LOG_LEVEL
               value: "debug"
           volumeMounts:
