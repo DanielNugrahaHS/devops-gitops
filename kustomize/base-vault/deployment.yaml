@@ -23,18 +23,18 @@ spec:
             - name: VAULT_DEV_ROOT_TOKEN_ID
               value: "root"
             - name: VAULT_LOCAL_CONFIG
-              valueFrom:
-                configMapKeyRef:
-                  name: vault-config
-                  key: config.json
+              value: /vault/config/config.json
             - name: VAULT_LOG_LEVEL
               value: "debug"
           volumeMounts:
-            - name: config-volume
+            - name: vault-config-dir
               mountPath: /vault/config
+            - name: config-volume
+              mountPath: /vault/config/config.json
+              subPath: config.json
       volumes:
+        - name: vault-config-dir
+          emptyDir: {}  # writable dir
         - name: config-volume
           configMap:
             name: vault-config
-        - name: vault-config-dir
-          emptyDir: {}
