@@ -21,7 +21,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: uptime-kuma
-  namespace: uptime-kuma
+  namespace: argocd
 spec:
   destination:
     namespace: uptime-kuma
