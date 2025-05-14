@@ -18,7 +18,7 @@ spec:
           image: hashicorp/vault:latest
           args: ["server", "-dev"]
           ports:
-            - containerPort: 8200
+            - containerPort: 8222
           env:
             - name: VAULT_DEV_ROOT_TOKEN_ID
               value: "root"

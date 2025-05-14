@@ -8,5 +8,5 @@ spec:
     app: vault
   ports:
     - protocol: TCP
-      port: 8200
-      targetPort: 8200
+      port: 8222
+      targetPort: 8222
