@@ -16,8 +16,7 @@ spec:
       containers:
         - name: vault
           image: hashicorp/vault:latest
-          args:
-            - "server"
+          args: ["server"]
           ports:
             - containerPort: 8200
           env:
@@ -28,6 +27,8 @@ spec:
                 configMapKeyRef:
                   name: vault-config
                   key: config.json
+            - name: VAULT_LOG_LEVEL
+              value: "debug"
           volumeMounts:
             - name: config-volume
               mountPath: /vault/config

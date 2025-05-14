@@ -3,10 +3,11 @@ kind: Deployment
 metadata:
   name: vault
   namespace: vault
+spec:
   template:
     spec:
       containers:
-        - name: vault
-          env:
-            - name: VAULT_LOG_LEVEL
-              value: "debug"
+      - name: vault
+        env:
+        - name: VAULT_LOG_LEVEL
+          value: "debug"
