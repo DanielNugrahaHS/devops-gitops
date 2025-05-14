@@ -16,7 +16,7 @@ spec:
       containers:
         - name: vault
           image: hashicorp/vault:latest
-          args: ["server"]
+          args: ["server", "-dev"]
           ports:
             - containerPort: 8200
           env:
@@ -32,9 +32,12 @@ spec:
             - name: config-volume
               mountPath: /vault/config/config.json
               subPath: config.json
+          securityContext:
+            capabilities:
+              add: ["IPC_LOCK"]
       volumes:
         - name: vault-config-dir
-          emptyDir: {}  # writable dir
+          emptyDir: {}
         - name: config-volume
           configMap:
             name: vault-config
