@@ -6,4 +6,4 @@ resources:
 
 patches:
   - path: patch-deployment.yaml
-  # - path: patch-configmap.yaml
+  - path: patch-configmap.yaml
