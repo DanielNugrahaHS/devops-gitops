@@ -36,3 +36,5 @@ spec:
         - name: config-volume
           configMap:
             name: vault-config
+        - name: vault-config-dir
+          emptyDir: {}
